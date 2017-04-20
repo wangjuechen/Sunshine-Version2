@@ -17,10 +17,12 @@ package com.example.android.sunshine.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -42,11 +44,13 @@ import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
 import static android.R.attr.constantSize;
 import static android.R.attr.content;
 import static android.R.attr.id;
+import static android.R.attr.preferenceStyle;
+import static android.R.id.message;
 
 /**
  * Encapsulates fetching the forecast and displaying it as a {@link ListView} layout.
  */
-public class ForecastFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class ForecastFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, SharedPreferences.OnSharedPreferenceChangeListener{
     public static final String LOG_TAG = ForecastFragment.class.getSimpleName();
     private ForecastAdapter mForecastAdapter;
 
@@ -90,6 +94,30 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     static final int COL_WEATHER_CONDITION_ID = 6;
     static final int COL_COORD_LAT = 7;
     static final int COL_COORD_LONG = 8;
+
+
+    @Override
+    public void onResume() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+
+        super.onResume();
+
+    }
+
+    @Override
+    public void onPause() {
+        PreferenceManager.getDefaultSharedPreferences(getActivity()).unregisterOnSharedPreferenceChangeListener(this);
+        super.onPause();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if(key.equals(SunshineSyncAdapter.PREFS_NAME)){
+            @SunshineSyncAdapter.LocationStatus int status  = Utility.getLocationStatus(getActivity());
+            SetEmptyView(status);
+        }
+    }
 
     /**
      * A callback interface that all activities containing this fragment must
@@ -265,19 +293,12 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         mForecastAdapter.swapCursor(data);
 
-        if(data == null){
-            
-            mListView.setEmptyView(mEmptyView);
-
-
-        }
-
-
         if (mPosition != ListView.INVALID_POSITION) {
             // If we don't need to restart the loader, and there's a desired position to restore
             // to, do so now.
             mListView.smoothScrollToPosition(mPosition);
         }
+
     }
 
     @Override
@@ -291,4 +312,34 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
             mForecastAdapter.setUseTodayLayout(mUseTodayLayout);
         }
     }
-}
+
+    public void SetEmptyView(@SunshineSyncAdapter.LocationStatus int status){
+
+        if(mForecastAdapter.getCount() == 0){
+            TextView emptyView = (TextView) getView().findViewById(R.id.list_item_empty);
+            String message = "";
+
+            if(emptyView != null){
+                message = getString(R.string.noInternet_text_view);
+            }
+
+            switch(status){
+                case 1:{
+                    message = getString(R.string.empty_forecast_list_server_down);
+                    break;
+                }
+                case 2:{
+                    message = getString(R.string.empty_forecast_list_server_error);
+                    break;
+                }
+                default:{
+                    if(!Utility.isInternetConnected(getActivity())){
+                    message = getString(R.string.empty_forecast_list_server_unknown);}
+                    break;
+                }
+
+            }
+                emptyView.setText(message);
+            }
+        }
+    }

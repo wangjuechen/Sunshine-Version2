@@ -3,57 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/JC/Documents/Udacity/Sunshine-Version-2-sunshine_master/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bf7902eb810b5cf597d1296ea900a4301511003d">
-        <dex dex="/Users/JC/Documents/Udacity/Sunshine-Version-2-sunshine_master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4d7bf6e11b384f71f6b43a8cce8f8efb6e1e00ae/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/JC/.android/build-cache/0b9379ff475b5300d91a295f18a02dcb499fd3bc/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
-        <dex dex="/Users/JC/Documents/Udacity/Sunshine-Version-2-sunshine_master/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3340d167114e95b015fbe640b89fcf6e620c4b61/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/JC/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
-        <dex dex="/Users/JC/Documents/Udacity/Sunshine-Version-2-sunshine_master/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-21.0.2_47d0c974e5ea9af9da3db65eecdadce6426d20f1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/JC/.android/build-cache/0b9379ff475b5300d91a295f18a02dcb499fd3bc/output/jars/libs/internal_impl-21.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
-        <dex dex="/Users/JC/Documents/Udacity/Sunshine-Version-2-sunshine_master/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-21.0.2_07eba6b1da0187525d42c1987a9f9870ae67f7e9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/JC/.android/build-cache/38f9d059b73aa4d1c44b5dfe46a893711ada067b/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7ae2d38807a43b2f2185ff4089a92c790b579e54">
-        <dex dex="/Users/JC/Documents/Udacity/Sunshine-Version-2-sunshine_master/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_81f2b3e4acef4288b225ac9f3fc0dd33b0e6fa6a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/JC/Documents/Udacity/Sunshine-Version-2-sunshine_master/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/JC/Documents/Udacity/Sunshine-Version2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/Users/JC/Documents/Udacity/Sunshine-Version-2-sunshine_master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_949f0b22bade75a2a3775d81523555f40f8fdb8c/classes.dex" />
+        <dex dex="/Users/JC/Documents/Udacity/Sunshine-Version2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_32d7e9ce72b57ad5791efa72e11d3752b33113c7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/JC/Documents/Udacity/Sunshine-Version2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="81ff93ee5b572c6d9ec10f827cd9d47292cb8469">
+        <dex dex="/Users/JC/Documents/Udacity/Sunshine-Version2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_7209d45792c763d35e43b985311329aa202547e5/classes.dex" />
     </item>
 
 </items>
